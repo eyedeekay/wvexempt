@@ -46,12 +46,8 @@ func Exempt() error {
 		"-n=\"Microsoft.Win32WebViewHost_cw5n1h2txyewy\"",
 	}
 
-	// This removes the "--winsudoParent <int>" arguments that
-	// are injected into the second execution of this binary.
-	args := winsudo.StripParentArg(Args)
-
 	// Execute the given command in an elevated environment
-	_, err := winsudo.ElevatedExec(args[0], goexec.Args(args[1:]...))
+	_, err := winsudo.ElevatedExec(Args[0], goexec.Args(Args[1:]...))
 
 	return err
 }
