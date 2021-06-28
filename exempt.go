@@ -28,7 +28,7 @@ func CheckExempt() bool {
 	if err != nil {
 		return false
 	}
-	if strings.Contains(exemptions, "webkit exemption string goes here.") {
+	if strings.Contains(exemptions, "cw5n1h2txyewy") {
 		return true
 	}
 	return false
