@@ -1,4 +1,4 @@
-package checkexempt
+package wvexempt
 
 import "testing"
 

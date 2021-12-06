@@ -1,6 +1,7 @@
-package checkexempt
+package wvexempt
 
 import (
+	"fmt"
 	"os/exec"
 	"strings"
 
@@ -47,7 +48,10 @@ func Exempt() error {
 	}
 
 	// Execute the given command in an elevated environment
-	_, err := winsudo.ElevatedExec(Args[0], goexec.Args(Args[1:]...))
+	exit, err := winsudo.ElevatedExec(Args[0], goexec.Args(Args[1:]...))
+	if exit != 0 {
+		err = fmt.Errorf("Elevation Error: WebView Fixer exited status %s", exit)
+	}
 
 	return err
 }
